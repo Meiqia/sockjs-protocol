@@ -1351,7 +1351,7 @@ class JSONEncoding(Test):
         recv = r.body.strip()[2:-1]
 
         # Received string is indeed what we sent previously, aka - escaped.
-        self.assertEqual(recv, server_killer_string_esc)
+        self.assertEqual(json.loads(recv), json.loads(server_killer_string_esc))
 
     def test_xhr_server_decodes(self):
         # Make sure that server decodes the chars we're customly
